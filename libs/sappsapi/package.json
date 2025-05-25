@@ -1,0 +1,53 @@
+{
+  "name": "sappsapi",
+  "version": "1.0.19",
+  "description": "Web framework built on Web Standards",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./index.js"
+    }
+  },
+  "author": {
+    "name": "SappsDev",
+    "email": "info@sappsdev.com"
+  },
+  "keywords": [
+    "sappsapi",
+    "web",
+    "app",
+    "http",
+    "application",
+    "framework",
+    "router",
+    "cloudflare",
+    "workers",
+    "fastly",
+    "compute",
+    "deno",
+    "bun",
+    "lambda",
+    "nodejs",
+    "bun",
+    "bunjs"
+  ],
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target node && tsc --emitDeclarationOnly --outDir dist",
+    "release": "bunx bumpp",
+    "publish:npm": "bun run build && bun publish"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.12",
+    "typescript": "^5.5.2",
+    "vitest": "~3.0.7"
+  }
+}
