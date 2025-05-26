@@ -22,7 +22,13 @@ export class App {
         port: options.port ?? 3000,
         hostname: options.hostname ?? "0.0.0.0",
         fetch: (req, server) => {
-          return handleRequest(req, server, adapter, (ctx) => this.handle(ctx));
+          return handleRequest(
+            req,
+            server,
+            adapter,
+            (ctx) => this.handle(ctx),
+            this.options.cors
+          );
         },
       });
       console.log(
@@ -36,8 +42,12 @@ export class App {
       addEventListener("fetch", (event) => {
         const bindings = this.options.bindings ?? {};
         event.respondWith(
-          handleRequest(event.request, { env: bindings }, adapter, (ctx) =>
-            this.handle(ctx)
+          handleRequest(
+            event.request,
+            { env: bindings },
+            adapter,
+            (ctx) => this.handle(ctx),
+            this.options.cors
           )
         );
       });

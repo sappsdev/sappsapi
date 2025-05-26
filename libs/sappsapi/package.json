@@ -1,6 +1,6 @@
 {
   "name": "sappsapi",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Web framework built on Web Standards",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -18,10 +18,18 @@ export interface RuntimeAdapter {
   serveStaticFile?(filePath: string, mimeType?: string): Promise<Response>;
 }
 
+export interface CorsOptions {
+  origin?: string;
+  methods?: string;
+  headers?: string;
+  maxAge?: string;
+}
+
 export interface AppOptions {
   port?: number;
   hostname?: string;
   bindings?: Record<string, unknown>;
+  cors?: CorsOptions | boolean;
 }
 
 export interface Context {
